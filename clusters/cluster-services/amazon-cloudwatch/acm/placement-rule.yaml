@@ -1,0 +1,18 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: amazon-cloudwatch-placement-1
+  namespace: amazon-cloudwatch 
+  labels:
+    app: amazon-cloudwatch
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions: []
+    matchLabels:
+      # Replace value with Cluster you wish to provision too.
+      cluster.open-cluster-management.io/clusterset: multicloud-cluster-set
+
+       

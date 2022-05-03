@@ -1,0 +1,17 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  labels:
+    app: openshift-logging
+    app.kubernetes.io/instance: apps-cluster-services-openshift-logging  
+  name: openshift-logging-placement-1
+  namespace: openshift-logging 
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions: []
+    matchLabels:
+      # Replace value with Cluster you wish to provision too.
+      cluster.open-cluster-management.io/clusterset: multicloud-cluster-set
